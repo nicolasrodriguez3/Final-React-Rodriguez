@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./Navbar.css"
 import logo from "../../assets/logo-fy2.svg"
 import burgerIcon from "../../assets/burger-icon.svg"
-import Cart from "../Cart/Cart"
+import CartWidget from "../CartWidget/CartWidget"
 
 export default function Navbar() {
 	const [displayMenu, setDisplayMenu] = useState("none");
@@ -13,8 +13,8 @@ export default function Navbar() {
 					<img src={logo} alt="ForYou logo" width="180px" />
 				</a>
 				<div className="nav-icons">
-					<Cart />
-				<nav className="categories viewed-lg" style={{"display": displayMenu}}>
+					<CartWidget itemsCart={1} />
+				<nav className="categories viewed-lg" style={{display: displayMenu}}>
 					<a href="#">Categoría 1</a>
 					<a href="#">Categoría 2</a>
 					<a href="#">Categoría 3</a>

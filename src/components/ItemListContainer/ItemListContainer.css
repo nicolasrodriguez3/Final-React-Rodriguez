@@ -4,7 +4,7 @@
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	height: calc(100vh - 75px);
+	min-height: calc(100vh - 75px);
 }
 .item-list-container .item-list {
 	display: grid;
