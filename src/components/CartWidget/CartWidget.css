@@ -8,12 +8,15 @@
 	right: 0;
 	width: 1.4rem;
 	height: 1.4rem;
-	line-height: 1.4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	text-align: center;
 	font-size: .8rem;
 	font-weight: bold;
 	color: #fff;
 	background-color: #b079de;
+	border: 2px solid #fff;
 	border-radius: 50%;
 	box-shadow: 0 0 0.5rem rgba(0,0,0,0.5);
 }
