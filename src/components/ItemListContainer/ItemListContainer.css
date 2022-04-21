@@ -1,0 +1,15 @@
+.item-list-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: calc(100vh - 75px);
+}
+.item-list-container .item-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 1rem;
+	width: 100%;
+	padding: 1rem;
+}
