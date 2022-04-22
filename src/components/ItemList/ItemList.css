@@ -2,7 +2,11 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 1rem;
 	text-align: center;
-	background-color: #ccc;
+	background-color: #fff;
+	border-radius: 1rem;
+	overflow: hidden;
+}
+.item-info{
+	padding: 1rem;
 }
