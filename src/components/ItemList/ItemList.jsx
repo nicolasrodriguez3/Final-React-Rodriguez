@@ -1,19 +1,30 @@
 import React from 'react';
-import ItemCount from '../ItemCount/ItemCount';
+import Item from '../Item/Item';
 import './ItemList.css';
 
-function ItemList(props) {
-	const { name, price, stock, src } = props;
-	const [max, setMax] = React.useState(stock);
+function ItemList() {
+	const items = [
+		{
+			name: 'Item 1',
+			price: '$100',
+			stock: 10,
+			src: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60'
+		},
+		{
+			name: 'Item 2',
+			price: '$200',
+			stock: 1,
+			src: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60'
+		},
+		{
+			name: 'Item 3',
+			price: '$300',
+			stock: 5,
+			src: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60'
+		}
+	]
 	return ( 
-		<article className='item'>
-			<img src={src} alt={name} />
-			<div className='item-info'>
-				<h2>{name}</h2>
-				<p>{price}</p>
-				<ItemCount stock={max} name={name} onAddToCart={setMax}/>
-			</div>
-		</article>
+		items.map((item, i) => <Item key={i} producto={item}/>)
 	 );
 }
 
