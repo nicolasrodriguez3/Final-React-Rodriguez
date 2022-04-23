@@ -5,8 +5,13 @@ export default function ItemCount(props) {
 	const [value, setValue] = useState(1)
 
 
-	const addToCart = () => {
-		setValue(1)
+	const handleAddToCart = () => {
+		if(value >= 1 && value <= props.stock){
+			console.log(props);
+			console.log(`Se agrego el producto ${props.name} al carrito`);
+			setValue(1)
+			props.onAddToCart(value)
+		} 
 	}
 	return (
 		<>
@@ -15,7 +20,7 @@ export default function ItemCount(props) {
 				<span>{value}</span>
 				<button onClick={()=>{setValue(value-1)}} disabled={value <= 1 && true} >-</button>
 			</div>
-			<button className="add-cart" onClick={addToCart}>Agregar al carrito</button>
+			<button className="add-cart" onClick={handleAddToCart}>Agregar al carrito</button>
 		</>
 	)
 }
