@@ -13,7 +13,7 @@ export default function Navbar() {
 					<img src={logo} alt="ForYou logo" width="180px" />
 				</a>
 				<div className="nav-icons">
-					<CartWidget itemsCart={1} />
+					<CartWidget/>
 				<nav className="categories viewed-lg" style={{display: displayMenu}}>
 					<a href="#">Categoría 1</a>
 					<a href="#">Categoría 2</a>

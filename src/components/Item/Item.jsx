@@ -1,20 +1,18 @@
 import React, { useState } from "react"
 import ItemCount from "../ItemCount/ItemCount"
 
-function Item(props) {
-	const { name, price, stock, src } = props.producto
-	const [max, setMax] = useState(stock)
+export default function Item({product}) {
+	console.log(product)
+	const [max, setMax] = useState(5)
 
 	return (
 		<article className="item">
-			<img src={src} alt={name} />
+			<img src={product.thumbnail} alt={product.title} />
 			<div className="item-info">
-				<h2>{name}</h2>
-				<p>{price}</p>
-				<ItemCount stock={max} name={name} onAddToCart={setMax} />
+				<h2>{product.title}</h2>
+				<p>{product.price}</p>
+				<ItemCount stock={max} name={product.title} onAddToCart={setMax} />
 			</div>
 		</article>
 	)
 }
-
-export default Item

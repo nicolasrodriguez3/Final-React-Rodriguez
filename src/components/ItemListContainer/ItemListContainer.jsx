@@ -1,16 +1,19 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import ItemList from "../ItemList/ItemList"
 import "./ItemListContainer.css"
 
 export default function ItemListContainer(props) {
+	const [query, setQuery] = useState("celular")
+
 	return (
 		<div className="item-list-container">
+			<div className="item-list-container-search">
+				<input type="text" placeholder="Buscar producto" />
+				<button onClick={(e) => setQuery(e.target.value)}>Buscar</button>
+			</div>
 			<h2>{props.greeting}</h2>
 			<section className="max-width item-list">
 				<ItemList />
-			{/* <ItemList name="Item 1" price="$100" stock={10} src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60" />
-			<ItemList name="Item 1" price="$100" stock={1} src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60" />
-			<ItemList name="Item 1" price="$100" stock={5} src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=60" /> */}
 			</section>
 		</div>
 	)
