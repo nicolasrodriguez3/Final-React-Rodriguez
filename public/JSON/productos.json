@@ -1,57 +1,52 @@
 [
 	{
-		"id": 1,
-		"title": "Notebook 15 pulgadas Full HD",
-		"description": "Notebook 15 pulgadas Full HD",
-		"price": 1500,
-		"pictureURL": "https://www.apple.com/v/mac/home/am/images/overview/macbook_pro_15_overview_2x.png",
-		"category": "Computación",
-		"stock": 8,
-		"discount": 10
+		 "id":1,
+		 "title":"Macbook 15 pulgadas Full HD",
+		 "description":"Notebook 15 pulgadas Full HD",
+		 "price":1500,
+		 "pictureURL":"https://http2.mlstatic.com/D_NQ_NP_2X_801112-MLA46516512347_062021-F.webp",
+		 "category":"Computación",
+		 "stock":8,
+		 "discount":10
 	},
 	{
-		"id": 2,
-		"title": "Samsung Galaxy S22",
-		"description": "Samsung Galaxy S22",
-		"price": 1200,
-		"pictureURL": "https://placeimg.com/300/300/tech",
-		"category": "Smartphone",
-		"stock": 5,
-		"discount": 0
+		 "id":2,
+		 "title":"Samsung Galaxy S22",
+		 "description":"Samsung Galaxy S22",
+		 "price":1200,
+		 "pictureURL":"https://http2.mlstatic.com/D_NQ_NP_2X_668050-MLA49303776893_032022-F.webp",
+		 "category":"Smartphone",
+		 "stock":5,
+		 "discount":0
 	},
 	{
-		"id": 3,
-		"title": "Notebook 15 pulgadas Full HD",
-		"description": "Notebook 15 pulgadas Full HD",
-		"price": 1000,
-		"pictureURL": "https://placeimg.com/300/300/tech",
-		"category": "Computación",
-		"stock": 0,
-		"discount": 0
+		 "id":3,
+		 "title":"Notebook Lenovo 15 pulgadas Full HD",
+		 "description":"Notebook 15 pulgadas Full HD",
+		 "price":1000,
+		 "pictureURL":"https://http2.mlstatic.com/D_NQ_NP_2X_645141-MLA48708038233_122021-F.webp",
+		 "category":"Computación",
+		 "stock":0,
+		 "discount":0
 	},
 	{
-		"id": 4,
-		"title": "Notebook 15 pulgadas Full HD",
-		"description": "Notebook 15 pulgadas Full HD",
-		"price": 1100,
-		"pictureURL": "https://placeimg.com/300/300/tech",
-		"category": "Computación",
-		"stock": 1,
-		"discount": 0
+		 "id":4,
+		 "title":"Notebook HP 15 pulgadas Full HD",
+		 "description":"Notebook 15 pulgadas Full HD",
+		 "price":1100,
+		 "pictureURL":"https://http2.mlstatic.com/D_NQ_NP_2X_959745-MLA47932240484_102021-F.webp",
+		 "category":"Computación",
+		 "stock":1,
+		 "discount":0
 	},
 	{
-		"id": 5,
-		"title": "Notebook 15 pulgadas Full HD",
-		"description": "Notebook 15 pulgadas Full HD",
-		"price": 900,
-		"pictureURL": "https://placeimg.com/300/300/tech",
-		"category": "Computación",
-		"stock": 20,
-		"discount": 0
+		 "id":5,
+		 "title":"Notebook Asus 15 pulgadas Full HD",
+		 "description":"Notebook 15 pulgadas Full HD",
+		 "price":900,
+		 "pictureURL":"https://http2.mlstatic.com/D_NQ_NP_2X_908593-MLA49420869607_032022-F.webp",
+		 "category":"Computación",
+		 "stock":20,
+		 "discount":0
 	}
-
-
-
-
-	
 ]
