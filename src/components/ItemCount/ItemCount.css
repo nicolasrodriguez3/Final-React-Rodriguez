@@ -44,6 +44,8 @@ button:disabled{
 	border: none;
 	padding: .5rem .8rem;
 	border-radius: 5px;
+	max-width: 20rem;
+	margin: 0 auto;
 }
 .add-cart:hover{
 	background: #8c6dcf;
