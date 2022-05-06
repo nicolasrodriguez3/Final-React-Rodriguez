@@ -72,7 +72,7 @@
 .categories a{
 	text-decoration: none;
 	color: #7c2cab;
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	padding: .5rem 0;
 	display: inline-block;
 	border-bottom: 2px solid transparent;
@@ -93,5 +93,18 @@
 	}
 	.viewed-lg{
 		display: flex;
+	}
+	.categories{
+		position: static;
+		display: flex;
+		background-color: #d6c5ff;
+		padding: .5rem 1rem;
+		gap: 1rem;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+	.nav-icons{
+		flex-direction: row-reverse;
 	}
 }

@@ -11,7 +11,7 @@ export default function Item({ product }) {
 				<p>{product.price}</p>
 
 				<div className="btn-container">
-					<Link to="/details" className="btn secondary">
+					<Link to={`/details/${product.id}`} className="btn secondary">
 						Detalles
 					</Link>
 					<Button className="btn primary" onClick={() => {}}>

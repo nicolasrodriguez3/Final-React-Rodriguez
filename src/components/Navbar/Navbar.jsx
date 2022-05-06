@@ -7,6 +7,10 @@ import CartWidget from "../CartWidget/CartWidget"
 
 export default function Navbar() {
 	const [displayMenu, setDisplayMenu] = useState("none");
+
+	// se utiliza para mostrar las categorias si el tamaño de la pantalla es mayor a 768px
+	window.addEventListener("resize", () => (window.innerWidth > 768)	&&setDisplayMenu(""))
+	
 	return (
 		<header className="header">
 			<div className="max-width header-content">
@@ -16,9 +20,9 @@ export default function Navbar() {
 				<div className="nav-icons">
 					<CartWidget/>
 				<nav className="categories viewed-lg" style={{display: displayMenu}}>
-					<Link to="/">Categoría 1</Link>
-					<Link to="/">Categoría 2</Link>
-					<Link to="/">Categoría 3</Link>
+					<Link to="/categories/smartphone">smartphone</Link>
+					<Link to="/categories/computacion">Computacion</Link>
+					<Link to="/categories/electrodomesticos">electrodomesticos</Link>
 				</nav>	
 				<button className="navbar-burger hidden-lg" onClick={() => setDisplayMenu(displayMenu === "none" ? "flex" : "none")}>
 					<img src={burgerIcon} alt="" />

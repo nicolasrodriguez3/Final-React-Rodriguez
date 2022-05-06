@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react"
+import { DotPulse } from '@uiball/loaders'
+
 import Item from "../Item/Item"
 import "./ItemList.css"
 
@@ -14,18 +16,24 @@ function ItemList(props) {
 	// 		})
 	// }, [])
 	useEffect(() => {
-		fetch("./JSON/productos.json")
+		fetch("/JSON/productos.json")
 		.then(res => res.ok ? res.json(res) : Promise.reject(res))
     .then(data => {
-      console.log(data);
-			setProducts(data)
-    })
-    .catch(err => console.log(err));
+			if(props.category){
+				setProducts(data.filter(product => product.category === props.category))
+			}
+			else{
+				setProducts(data)
+			}
 
-	}, [])
+			console.log(data)
+    })
+    .catch(err => console.log(err))
+
+	}, [props.category])
 
 	return products.length === 0 ? (
-		<p>Cargando...</p>
+		<DotPulse size={40} speed={1.3} color="black" />
 	) : (
 		products.map((product) => <Item key={product.id} product={product} />)
 	)
