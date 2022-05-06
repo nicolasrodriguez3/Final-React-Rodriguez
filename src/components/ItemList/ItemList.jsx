@@ -6,15 +6,7 @@ import "./ItemList.css"
 
 function ItemList(props) {
 	const [products, setProducts] = useState([])
-	// const query = "samsung" //* provisorio
 
-	// useEffect(() => {
-	// 	fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query}`)
-	// 		.then((res) => res.json())
-	// 		.then((data) => {
-	// 			setProducts(data.results)
-	// 		})
-	// }, [])
 	useEffect(() => {
 		fetch("/JSON/productos.json")
 		.then(res => res.ok ? res.json(res) : Promise.reject(res))
@@ -25,15 +17,13 @@ function ItemList(props) {
 			else{
 				setProducts(data)
 			}
-
-			console.log(data)
     })
     .catch(err => console.log(err))
 
 	}, [props.category])
 
 	return products.length === 0 ? (
-		<DotPulse size={40} speed={1.3} color="black" />
+		<DotPulse size={40} speed={1.3} color="#7c2cab" />
 	) : (
 		products.map((product) => <Item key={product.id} product={product} />)
 	)

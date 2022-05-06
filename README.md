@@ -9,6 +9,7 @@ Esta realizado bajo el framework de React.js con un enfoque basado en componente
 Asi mismo, se dasarrollo con la metodologia "mobile first" para que se adapte a todos los dispositivos.
 
 ## Screenshots
+![](/public/demo.gif)
 
 ## Sobre mí
 Soy Nicolás Rodríguez y te invito a seguirme en mis redes sociales:

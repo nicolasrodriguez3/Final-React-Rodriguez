@@ -14,7 +14,6 @@ export default function ItemDetailContainer() {
 			.then((res) => (res.ok ? res.json(res) : Promise.reject(res)))
 			.then((data) => {
 				const product = data.find((item) => item.id === itemID)
-				console.log(data, product, itemID)
 
 				setTimeout(() => setProduct(product), 1000) //* Timeout de 1 segundo
 			})
@@ -23,7 +22,7 @@ export default function ItemDetailContainer() {
 
 	return (
 		<div className="item-detail-container max-width">
-			{product ? <ItemDetail detail={product} /> : <DotPulse size={40} speed={1.3} color="black" />}
+			{product ? <ItemDetail detail={product} /> : <DotPulse size={40} speed={1.3} color="#7c2cab" />}
 		</div>
 	)
 }

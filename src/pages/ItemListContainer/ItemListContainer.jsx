@@ -5,9 +5,7 @@ import ItemList from "../../components/ItemList/ItemList"
 import "./ItemListContainer.css"
 
 export default function ItemListContainer(props) {
-	
 	const {category} = useParams()
-	console.log(category)
 
 	return (
 		<div className="item-list-container">
