@@ -24,10 +24,12 @@ export default App
 
 /*
 	TODO: 
-	* corregir categorias nabvar
-	* crear readme
+	* corregir categorias nabvar ✅
+	* crear readme ✅
 	* crear una pagina de error
-	* agregar loading
+	* agregar loading ✅
 	* corregir tamaño imagenes
-	* corregir estilos de el navbar
+	* corregir estilos de el navbar ✅
+	* crear footer
+	* agregar un aviso cuando no hay mas stock para agregar al carrito (o mostrar el stock disponible en el componente itemDetail)
 */

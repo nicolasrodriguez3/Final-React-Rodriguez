@@ -11,6 +11,26 @@ Asi mismo, se dasarrollo con la metodologia "mobile first" para que se adapte a 
 ## Screenshots
 ![Demo](./public/demo.gif)
 
+## Dependencias
+* React.js: Una de las librerias mas populares actualmente. Encontra mas info en [https://reactjs.org/](https://reactjs.org/)
+* React Router DOM: Para manejar con facilidad las rutas de la aplicación. [https://reactrouter.com/](https://reactrouter.com/)
+* Uiball: Para el loader de la aplicación. [https://uiball.com/](https://uiball.com/)
+
+## Instalación
+Para instalar la aplicación, se debe realizar los siguientes pasos:
+1. Clonar el repositorio de GitHub
+~~~
+	git clone https://github.com/nicolasrodriguez3/eccomerce-rodriguez.git
+~~~
+2. Realizar la instalación de las dependencias utilizadas.
+~~~
+	npm install
+~~~
+3. Iniciar un servidor local para visualizar el mismo en el navegador.
+~~~
+	npm start
+~~~
+
 ## Sobre mí
 Soy Nicolás Rodríguez y te invito a seguirme en mis redes sociales:
 
