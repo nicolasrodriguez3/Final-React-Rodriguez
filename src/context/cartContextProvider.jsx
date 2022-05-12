@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext } from "react"
 
-export const CartContext = createContext([])
-export const useCartContext = () => useContext(CartContext)
+export const CartContext = createContext({}) // crea un contexto
+export const useCartContext = () => useContext(CartContext) // usa el contexto
 
 const CartContextProvider = ({ children }) => {
 	const [cartList, setCartList] = useState([])
@@ -40,8 +40,18 @@ const CartContextProvider = ({ children }) => {
 
 	return (
 		<CartContext.Provider
-			value={{ cartList, addToCart, emptyCart, removeFromCart, totalCount, totalPrice }}>
+			value={{
+				cartList,
+				addToCart,
+				emptyCart,
+				removeFromCart,
+				totalCount,
+				totalPrice,
+				quantityOfProduct,
+			}}>
 			{children}
 		</CartContext.Provider>
 	)
 }
+
+export default CartContextProvider

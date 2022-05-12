@@ -1,22 +1,30 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Navbar from "./components/Navbar/Navbar"
-import "./App.css"
 import ItemListContainer from "./pages/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./pages/ItemDetailContainer/ItemDetailContainer"
+import Cart from "./components/Cart/Cart"
+import NotFound from "./pages/NotFound/NotFound"
+
+import "./App.css"
+import CartContextProvider from "./context/CartContextProvider"
 
 function App() {
 	return (
-		<Router>
-			<Navbar />
-			<Routes>
-				<Route path="/" element={<ItemListContainer greeting="Bienvenidos!" />}>
-					<Route path="categories/:category" element={<ItemListContainer />} />
-				</Route>
-				<Route path="details" element={<ItemDetailContainer />}>
-					<Route path=":id" element={<ItemDetailContainer />} />
-				</Route>
-			</Routes>
-		</Router>
+		<CartContextProvider>
+			<Router>
+				<Navbar />
+				<Routes>
+					<Route path="/" element={<ItemListContainer greeting="Bienvenidos!" />}>
+						<Route path="categories/:category" element={<ItemListContainer />} />
+					</Route>
+					<Route path="details" element={<ItemDetailContainer />}>
+						<Route path=":id" element={<ItemDetailContainer />} />
+					</Route>
+					<Route path="cart" element={<Cart />} />
+					<Route path="*" element={<NotFound />} />
+				</Routes>
+			</Router>
+		</CartContextProvider>
 	)
 }
 

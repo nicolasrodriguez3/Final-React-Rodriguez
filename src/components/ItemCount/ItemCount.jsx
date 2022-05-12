@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 import "./ItemCount.css"
 
-export default function ItemCount({ stock, name, onAddToCart }) {
+export default function ItemCount({ stock, name, onAdd }) {
 	const [value, setValue] = useState(1)
 
 	const handleAddToCart = () => {
 		if (value >= 1 && value <= stock) {
-			onAddToCart(value)
+			onAdd(value)
 			console.log(`Se agrego ${value} ${name} al carrito`)
 			setValue(1)
 		}

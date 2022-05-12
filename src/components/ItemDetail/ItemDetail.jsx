@@ -1,12 +1,21 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
+import { useCartContext } from "../../context/CartContextProvider"
 import ItemCount from "../ItemCount/ItemCount"
 import "./ItemDetail.css"
 
-export default function ItemDetail(props) {
-	console.log(props)
-	const { title, description, price, pictureURL, stock, category, discount } = props.detail
-	const [cart, setCart] = useState(0)
+export default function ItemDetail({ detail }) {
+	console.log(detail)
+	const { id, title, description, price, pictureURL, stock, category, discount } = detail
+	const [addedToCart, setAddedToCart] = useState(false)
+	const { addToCart } = useCartContext()
+
+	const handleAddToCart = (count) => {
+		if (!addedToCart) {
+			setAddedToCart(true)
+			addToCart(detail, count)
+		}
+	}
 
 	const productsInCart = () => {
 		return (
@@ -26,8 +35,9 @@ export default function ItemDetail(props) {
 				<h1>{title}</h1>
 				<p>{description}</p>
 				<p>{price}</p>
-				{cart === 0 ? (
-					<ItemCount stock={stock} name={title} onAddToCart={setCart} />
+				{/* Mostrar los botones hasta que el producto se agregue al carrito */}
+				{!addedToCart ? (
+					<ItemCount stock={stock} name={title} onAdd={handleAddToCart} />
 				) : (
 					productsInCart()
 				)}
