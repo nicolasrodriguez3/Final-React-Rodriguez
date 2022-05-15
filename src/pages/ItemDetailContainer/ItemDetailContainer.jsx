@@ -4,20 +4,30 @@ import { DotPulse } from '@uiball/loaders'
 
 import ItemDetail from "../../components/ItemDetail/ItemDetail"
 import "./ItemDetailContainer.css"
+import { doc, getDoc } from "firebase/firestore"
+import db from "../../firebase/firebaseConfig"
 
 export default function ItemDetailContainer() {
 	const [product, setProduct] = useState(null)
-	const itemID = parseInt(useParams().id)
+	const itemID = (useParams().id)
 
 	useEffect(() => {
-		fetch("/JSON/productos.json")
-			.then((res) => (res.ok ? res.json(res) : Promise.reject(res)))
-			.then((data) => {
-				const product = data.find((item) => item.id === itemID)
-
-				setTimeout(() => setProduct(product), 1000) //* Timeout de 1 segundo
-			})
-			.catch((err) => console.log(err))
+		console.log(itemID)
+		// Funcion para obtener los datos de firestore
+		const getData = async () => {
+			const itemRef = doc(db, "items", itemID);
+			const item = await getDoc(itemRef);
+			
+			if (item.exists()) {
+				const product = { id: item.id, ...item.data() }
+				setProduct(product)
+			} else {
+				console.log("No existe el producto")
+			}
+			
+		}
+		// obtener todos los datos de firestore
+		getData()
 	}, [itemID])
 
 	return (
