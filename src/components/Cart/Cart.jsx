@@ -1,6 +1,8 @@
 import { useCartContext } from "../../context/CartContextProvider"
 import CartItem from "../CartItem/CartItem"
 import Button from "@mui/material/Button"
+import "./cart.css"
+import img from "../../assets/undraw_empty_cart_co35.svg"
 
 export default function Cart() {
 	const { cartList, emptyCart, totalCount, totalPrice } = useCartContext()
@@ -19,7 +21,10 @@ export default function Cart() {
 					<h2>Cantidad total: {totalCount()} unidades</h2>
 				</>
 			) : (
-				<h1>El carrito esta vacio</h1>
+				<>
+				<h2>El carrito esta vacio</h2>
+				<img src={img} alt="cart empty" />
+				</>
 			)}
 		</div>
 	)

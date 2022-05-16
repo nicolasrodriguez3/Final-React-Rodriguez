@@ -1,30 +1,17 @@
 import React, { useState, useEffect } from "react"
-import { DotPulse } from '@uiball/loaders'
+import { DotPulse } from "@uiball/loaders"
 
 import Item from "../Item/Item"
 import "./ItemList.css"
 
-function ItemList({products}) {
-	//const [products, setProducts] = useState([])
+function ItemList({ products }) {
+	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
-		// fetch("/JSON/productos.json")
-		// .then(res => res.ok ? res.json(res) : Promise.reject(res))
-    // .then(data => {
-		// 	if(props.category){
-		// 		setProducts(data.filter(product => product.category === props.category))
-		// 	}
-		// 	else{
-		// 		setProducts(data)
-		// 	}
-    // })
-    // .catch(err => console.log(err))
-
-
-
+		products.length > 0 && setLoading(false)
 	}, [products])
 
-	return products.length === 0 ? (
+	return loading ? (
 		<DotPulse size={40} speed={1.3} color="#7c2cab" />
 	) : (
 		products.map((product) => <Item key={product.id} product={product} />)
