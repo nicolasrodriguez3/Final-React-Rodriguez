@@ -6,7 +6,7 @@ import "./ItemDetail.css"
 
 export default function ItemDetail({ detail }) {
 	console.log(detail)
-	const { id, title, description, price, pictureURL, stock, category, discount } = detail
+	const { title, description, price, pictureURL, stock } = detail
 	const [addedToCart, setAddedToCart] = useState(false)
 	const { addToCart } = useCartContext()
 
