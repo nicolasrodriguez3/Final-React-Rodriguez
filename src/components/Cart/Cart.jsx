@@ -4,7 +4,6 @@ import Button from "@mui/material/Button"
 
 export default function Cart() {
 	const { cartList, emptyCart, totalCount, totalPrice } = useCartContext()
-	console.log(useCartContext())
 	return (
 		<div>
 			{cartList.map((item) => (

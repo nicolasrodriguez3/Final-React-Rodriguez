@@ -6,7 +6,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 export default function CartItem({ item }) {
 	const { removeFromCart } = useCartContext()
 	const { title, quantity, price, id } = item
-	console.log(item)
+	
 	return (
 		<div>
 			<h1>{title}</h1>

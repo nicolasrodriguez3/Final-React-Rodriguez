@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
 import db from "../../firebase/firebaseConfig"
 import { collection, getDocs } from "firebase/firestore"
 import ItemList from "../../components/ItemList/ItemList"
 import "./ItemListContainer.css"
 
 export default function ItemListContainer(props) {
-	const { category } = useParams()
 	const [products, setProducts] = useState([])
 
 	useEffect(() => {
