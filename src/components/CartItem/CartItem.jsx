@@ -2,7 +2,9 @@ import React from "react"
 import { useCartContext } from "../../context/CartContextProvider"
 import IconButton from "@mui/material/IconButton"
 import DeleteIcon from "@mui/icons-material/Delete"
+
 import './CartItem.css'
+
 export default function CartItem({ item }) {
 	console.log(item)
 	const { removeFromCart } = useCartContext()

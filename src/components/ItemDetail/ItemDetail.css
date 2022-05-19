@@ -13,9 +13,8 @@
 }
 .product-detail-left img {
 	width: 100%;
-	
 	object-fit: contain;
-	max-height: 100vw;
+	max-height: min(100vw, 75vh);
 }
 .product-detail_right {
 	flex: 1 1 300px;
