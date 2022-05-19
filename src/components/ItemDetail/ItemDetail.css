@@ -3,15 +3,19 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	background-color: white;
-	border-radius: 20px;
 }
 .product-detail-left {
 	width: 50%;
 	padding: 1rem;
 	flex: 1 1 300px;
+	display: flex;
+	align-items: center;
 }
 .product-detail-left img {
 	width: 100%;
+	
+	object-fit: contain;
+	max-height: 100vw;
 }
 .product-detail_right {
 	flex: 1 1 300px;
@@ -21,9 +25,27 @@
 	flex-direction: column;
 	justify-content: center;
 	gap: 1rem;
+	color: #333;
 }
 .product-detail_right h1 {
-	font-size: 1.5rem;
+	font-size: 2rem;
 	font-weight: bold;
-	color: #333;
+	
+}
+.product-detail_right .price {
+	font-size: 2rem;
+	font-weight: bold;
+	color: var(--secondary);
+}
+.product-detail_right .description {
+	font-size: 1rem;
+}
+
+.item-added-text{
+	font-size: 1.2rem;
+	margin-bottom: .5rem;
+}
+.item-added-link{
+	color: #fff;
+	text-decoration: none;
 }

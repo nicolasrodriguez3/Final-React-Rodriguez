@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { DotPulse } from '@uiball/loaders'
 
 import ItemDetail from "../../components/ItemDetail/ItemDetail"
 import "./ItemDetailContainer.css"
 import { doc, getDoc } from "firebase/firestore"
 import db from "../../firebase/firebaseConfig"
+import Loader from "../../components/Loader/Loader"
 
 export default function ItemDetailContainer() {
 	const [product, setProduct] = useState(null)
@@ -32,7 +32,7 @@ export default function ItemDetailContainer() {
 
 	return (
 		<div className="item-detail-container max-width">
-			{product ? <ItemDetail detail={product} /> : <DotPulse size={40} speed={1.3} color="#7c2cab" />}
+			{product ? <ItemDetail detail={product} /> : Loader()}
 		</div>
 	)
 }

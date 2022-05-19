@@ -1,0 +1,35 @@
+.cart-item{
+	display: flex;
+	align-items: center;
+	background-color: #fff;
+	padding: 1rem 0;
+	margin-top: 1rem;
+	min-height: 150px;
+}
+.cart-item-left{
+	width: 30%;
+	min-width: 150px;
+	padding: 0 .5rem;
+}
+.cart-item-left > img{
+	width: 100%;
+	object-fit: contain;
+	max-height: 120px;
+}
+.cart-item-text{
+	flex-grow: 1;
+}
+.cart-item-text > h3{
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+.cart-item-text > p{
+	font-size: 1rem;
+	line-height: 1.5;
+}
+.cart-item-text > p:first-of-type{
+	font-size: 1.5rem;
+}
+.cart-item-right{
+	padding: 1rem;
+}

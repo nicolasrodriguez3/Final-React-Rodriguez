@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound/NotFound"
 
 import "./App.css"
 import CartContextProvider from "./context/CartContextProvider"
+import Checkout from "./pages/Checkout/Checkout"
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 						<Route path=":id" element={<ItemDetailContainer />} />
 					</Route>
 					<Route path="cart" element={<Cart />} />
+					<Route path="checkout" element={<Checkout />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</Router>
@@ -36,8 +38,11 @@ export default App
 	* crear readme ✅
 	* crear una pagina de error
 	* agregar loading ✅
-	* corregir tamaño imagenes
+	* corregir tamaño imagenes ✅
 	* corregir estilos de el navbar ✅
 	* crear footer
 	* agregar un aviso cuando no hay mas stock para agregar al carrito (o mostrar el stock disponible en el componente itemDetail)
+	* agregar componente Skeleton de MUI
+	* Crear pagina Checkout
+	* Enviar orden a firestore
 */

@@ -1,3 +1,8 @@
+@import "components/ItemDetail/ItemDetail.css";
+:root{
+	--primary: #d6c5ff;
+	--secondary: #8c6dcf;
+}
 *{
 	margin: 0;padding: 0;box-sizing: border-box;
 }
@@ -13,4 +18,8 @@ body{
 .max-width{
 	max-width: 1400px;
 	margin: 0 auto;
+}
+.container{
+	width: 100%;
+	min-height: calc(100vh - 75px);
 }
