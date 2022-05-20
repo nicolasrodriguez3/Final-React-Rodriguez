@@ -8,24 +8,27 @@ import NotFound from "./pages/NotFound/NotFound"
 import "./App.css"
 import CartContextProvider from "./context/CartContextProvider"
 import Checkout from "./pages/Checkout/Checkout"
+import CheckoutContextProvider, { CheckoutContext } from "./context/CheckoutContextProvider"
 
 function App() {
 	return (
 		<CartContextProvider>
-			<Router>
-				<Navbar />
-				<Routes>
-					<Route path="/" element={<ItemListContainer greeting="Bienvenidos!" />}>
-						<Route path="categories/:category" element={<ItemListContainer />} />
-					</Route>
-					<Route path="details" element={<ItemDetailContainer />}>
-						<Route path=":id" element={<ItemDetailContainer />} />
-					</Route>
-					<Route path="cart" element={<Cart />} />
-					<Route path="checkout" element={<Checkout />} />
-					<Route path="*" element={<NotFound />} />
-				</Routes>
-			</Router>
+			<CheckoutContextProvider>
+				<Router>
+					<Navbar />
+					<Routes>
+						<Route path="/" element={<ItemListContainer greeting="Bienvenidos!" />}>
+							<Route path="categories/:category" element={<ItemListContainer />} />
+						</Route>
+						<Route path="details" element={<ItemDetailContainer />}>
+							<Route path=":id" element={<ItemDetailContainer />} />
+						</Route>
+						<Route path="cart" element={<Cart />} />
+						<Route path="checkout" element={<Checkout />} />
+						<Route path="*" element={<NotFound />} />
+					</Routes>
+				</Router>
+			</CheckoutContextProvider>
 		</CartContextProvider>
 	)
 }
