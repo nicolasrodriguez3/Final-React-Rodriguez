@@ -48,5 +48,5 @@ button:hover{
 	margin: 0 auto;
 }
 .add-cart:hover{
-	background: #8c6dcf;
+	opacity: .8;
 }

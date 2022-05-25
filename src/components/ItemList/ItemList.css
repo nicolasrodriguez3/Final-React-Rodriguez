@@ -4,6 +4,7 @@
 	justify-content: center;
 }
 .item{
+	padding: 1rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -14,12 +15,77 @@
 	max-width: 400px;
 	margin: 0 auto;
 	width: 100%;
+	transition: all 0.3s ease-in-out;
+}
+.item-link{
+	text-decoration: none;
+	color: inherit;
 }
 .item-info{
-	padding: 1rem;
+	text-align: left;
+	padding-top: 1rem;
+	margin-bottom: -50px;
+	transition: 0.5s;
 }
-.item > img{
+.item-link > img{
 	width: 100%;
 	max-height: 300px;
 	object-fit: contain;
+}
+.btn-container{
+	transition: 0.5s;
+	opacity: 0;
+}
+.item:hover .btn-container{
+	opacity: 1;
+}
+.item:hover .item-info{
+	margin-bottom: 0px;
+}
+
+.item-added-success{
+	opacity: 0;
+	transition: .5s;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.item:hover .item-added-success{
+	margin-bottom: 1rem;
+	opacity: 1;
+}	
+
+.item-info h2{
+	font-size: 1.2rem;
+	font-weight: normal;
+	transform: translateY(-1rem);
+	transition: .5s;
+}
+.price-container{
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	transform: translateY(-1rem);
+	transition: .5s;
+}
+.item:hover .item-info h2, .item:hover .price-container{
+	transform: translateY(0px);
+}
+.price-container .price{
+	font-size: 1.6rem;
+	font-weight: bold;
+}
+.price-container .discount{
+	font-size: 1rem;
+	color: #8f5ebf;
+	font-style: italic;
+}
+.last-price{
+	text-decoration: line-through;
+	opacity: 0;
+	transition: .5s;
+}
+.item:hover .last-price{
+	opacity: .7;
 }

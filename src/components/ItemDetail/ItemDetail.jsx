@@ -2,6 +2,7 @@ import { Button } from "@mui/material"
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { useCartContext } from "../../context/CartContextProvider"
+import ItemAddedToCart from "../ItemAddedToCart/ItemAddedToCart"
 import ItemCount from "../ItemCount/ItemCount"
 
 export default function ItemDetail({ detail }) {
@@ -16,30 +17,22 @@ export default function ItemDetail({ detail }) {
 		}
 	}
 
-	const productsInCart = () => {
-		return (
-			<div className="item-added-success">
-				<div className="item-added-text">¡Se agregó al carrito!</div>
-				
-				<Link to="/cart" className="item-added-link"><Button variant="contained" color="secondary" >Ver</Button></Link>
-			</div>
-		)
-	}
-
 	return (
 		<section className="product-detail container max-width">
 			<picture className="product-detail-left">
 				<img src={pictureURL} alt={title} />
 			</picture>
 			<aside className="product-detail_right">
-				<h1>{title}</h1>
+				<header>
+					<h1>{title}</h1>
 				<p className="price">${price}</p>
-
+				</header>
+				
 				{/* Mostrar los botones hasta que el producto se agregue al carrito */}
 				{!addedToCart ? (
 					<ItemCount stock={stock} name={title} onAdd={handleAddToCart} />
 				) : (
-					productsInCart()
+					<ItemAddedToCart />
 				)}
 
 				<p className="description">{description}</p>

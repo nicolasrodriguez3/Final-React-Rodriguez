@@ -27,9 +27,7 @@
 	color: #333;
 }
 .product-detail_right h1 {
-	font-size: 2rem;
-	font-weight: bold;
-	
+	font-size: 1.5rem;
 }
 .product-detail_right .price {
 	font-size: 2rem;
@@ -47,4 +45,7 @@
 .item-added-link{
 	color: #fff;
 	text-decoration: none;
+}
+.item-added-success{
+	animation: fade-in .5s ease-in-out forwards;
 }
