@@ -86,6 +86,9 @@
 	width: 100%;
 	max-width: 150px;
 }
+.categories .active{
+	color: #b162ff;
+}
 
 @media screen and (min-width: 768px) {
 	.hidden-lg{

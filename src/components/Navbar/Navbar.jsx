@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import "./Navbar.css"
 import logo from "../../assets/logo-fy2.svg"
 import burgerIcon from "../../assets/burger-icon.svg"
@@ -23,9 +23,9 @@ export default function Navbar() {
 				<div className="nav-icons">
 					<CartWidget />
 					<nav className="categories viewed-lg" style={{ display: displayMenu }}>
-						<Link to="/categories/smartphone">Smartphone</Link>
-						<Link to="/categories/computacion">Computacion</Link>
-						<Link to="/categories/electrodomesticos">Electro</Link>
+						<NavLink to="/categories/smartphone">Smartphone</NavLink>
+						<NavLink to="/categories/computacion">Computacion</NavLink>
+						<NavLink to="/categories/electrodomesticos">Electro</NavLink>
 					</nav>
 					<button
 						className="navbar-burger hidden-lg"

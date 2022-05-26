@@ -4,6 +4,7 @@ import { useCheckoutContext } from "../../context/CheckoutContextProvider";
 import Loader from "../../components/Loader/Loader"
 import "./Checkout.css"
 import { Step, StepLabel, Stepper } from "@mui/material";
+import { useCartContext } from "../../context/CartContextProvider";
 
 function getStepContent(step) {
 	switch (step) {
@@ -19,11 +20,17 @@ function getStepContent(step) {
 }
 
 export default function Checkout() {
-  const { activeStep, orderID, isloading } = useCheckoutContext()
-	const steps = ["nico1", "nico2", "nico3"]
+	const { activeStep, orderID, isloading } = useCheckoutContext()
+	const { totalCount } = useCartContext()
+	const steps = ["Dirección", "Pago", "Confirmación"]
+
+	// verificar que haya productos en el carrito y si no hay, returnar a inicio
+	const ITEMS_IN_CART = totalCount()
+	if (ITEMS_IN_CART === 0) window.location.href = "/"
+
 	return (
 		<div className="checkout">
-			<h2>Checkout</h2>
+			<h2 className="title">Checkout</h2>
 			<Stepper activeStep={activeStep}>
         {steps.map((label) => {
           
