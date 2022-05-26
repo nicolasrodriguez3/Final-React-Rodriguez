@@ -1,9 +1,8 @@
-import { Button } from "@mui/material"
 import React, { useState } from "react"
-import { Link } from "react-router-dom"
 import { useCartContext } from "../../context/CartContextProvider"
 import ItemAddedToCart from "../ItemAddedToCart/ItemAddedToCart"
 import ItemCount from "../ItemCount/ItemCount"
+import "./ItemDetail.css"
 
 export default function ItemDetail({ detail }) {
 	const { title, description, price, pictureURL, stock } = detail

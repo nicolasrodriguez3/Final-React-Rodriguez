@@ -47,5 +47,5 @@ export default App
 	* agregar un aviso cuando no hay mas stock para agregar al carrito (o mostrar el stock disponible en el componente itemDetail)
 	* agregar componente Skeleton de MUI
 	* Crear pagina Checkout
-	* Enviar orden a firestore
+	* Enviar orden a firestore y mostrar el numero de orden
 */

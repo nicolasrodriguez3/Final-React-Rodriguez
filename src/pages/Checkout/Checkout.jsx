@@ -1,7 +1,9 @@
-import React, { useState } from "react"
+import React from "react"
 import { AddressForm, PaymentForm, Review, Success } from "../../components/CheckoutForm/CheckoutForm"
 import { useCheckoutContext } from "../../context/CheckoutContextProvider";
 import Loader from "../../components/Loader/Loader"
+import "./Checkout.css"
+import { Step, StepLabel, Stepper } from "@mui/material";
 
 function getStepContent(step) {
 	switch (step) {
@@ -18,12 +20,23 @@ function getStepContent(step) {
 
 export default function Checkout() {
   const { activeStep, orderID, isloading } = useCheckoutContext()
-
+	const steps = ["nico1", "nico2", "nico3"]
 	return (
-		<>
-			<div>Checkout</div>
+		<div className="checkout">
+			<h2>Checkout</h2>
+			<Stepper activeStep={activeStep}>
+        {steps.map((label) => {
+          
+          return (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          );
+        })}
+      </Stepper>
 			{isloading && <Loader />}
 			{!orderID ? getStepContent(activeStep) : <Success />}
-		</>
+			
+		</div>
 	)
 }

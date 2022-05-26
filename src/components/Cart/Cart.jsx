@@ -14,17 +14,19 @@ export default function Cart() {
 				<CartItem key={item.id} item={item} />
 			))}
 
-			<h2 className="cart-total">Total: ${totalPrice()}</h2>
+			<div className="max-width">
+				<h2 className="cart-total">Total: ${totalPrice()}</h2>
 
-			<div className="cart-btns">
-				<Button variant="contained" color="secondary">
-					<Link to="/checkout" className="item-added-link">
-						Terminar compra
-					</Link>
-				</Button>
-				<Button onClick={emptyCart} variant="outlined" color="secondary">
-					Vaciar Carrito
-				</Button>
+				<div className="cart-btns">
+					<Button variant="contained" color="secondary">
+						<Link to="/checkout" className="item-added-link">
+							Terminar compra
+						</Link>
+					</Button>
+					<Button onClick={emptyCart} variant="outlined" color="secondary">
+						Vaciar Carrito
+					</Button>
+				</div>
 			</div>
 		</div>
 	) : (

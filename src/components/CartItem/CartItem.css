@@ -1,7 +1,9 @@
 .cart-item{
+	background-color: #fff;
+}
+.cart-item-container{
 	display: flex;
 	align-items: center;
-	background-color: #fff;
 	padding: 1rem 0;
 	margin-top: 1rem;
 	min-height: 150px;

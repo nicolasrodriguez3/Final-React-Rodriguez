@@ -1,7 +1,10 @@
-@import "components/ItemDetail/ItemDetail.css";
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;600&display=swap');
+
 :root{
 	--primary: #d6c5ff;
 	--secondary: #8c6dcf;
+
+	--max-width: 1400px;
 }
 *{
 	margin: 0;padding: 0;box-sizing: border-box;
@@ -11,14 +14,16 @@
 }
 html{
 	scroll-behavior: smooth;
+	font-family: 'Mukta', sans-serif;;
 }
 body{
 	background-color: rgb(244, 240, 255);
 	color: #333;
 }
 .max-width{
-	max-width: 1400px;
-	margin: 0 auto;
+	max-width: var(--max-width);
+	margin-left: auto;
+	margin-right: auto;
 }
 .container{
 	width: 100%;

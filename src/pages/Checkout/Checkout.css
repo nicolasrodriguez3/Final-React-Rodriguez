@@ -1,0 +1,49 @@
+.checkout{
+	padding: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	background-color: #fff;
+}
+form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 1rem 0;
+}
+fieldset{
+	border: 0;
+	padding: 0;
+	margin: .5rem;
+	width: 100%;
+}
+legend{
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.btn-next{
+	align-self: end;
+}
+.btn-prev{
+	align-self: start;
+}
+.review-order{
+	margin-top: 1rem;
+	display: grid;
+	grid-template-columns: minmax(400px, 1fr) ;
+}
+.review-order li{
+	list-style: none;
+	padding: .5rem 0;
+	margin-bottom: .5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.review-order .review-total{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: .5rem 0;
+	font-size: 1.1rem;
+}
