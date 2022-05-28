@@ -9,7 +9,7 @@ export function AddressForm() {
 	return (
 		<form onSubmit={handleSubmit}>
 			<fieldset>
-				<legend>Dirección de envio</legend>
+				<legend className="step-title">Dirección de envio</legend>
 				<Grid container spacing={3}>
 					<Grid item xs={12}>
 						<TextField
@@ -111,10 +111,9 @@ export function PaymentForm() {
 
 	return (
 		<>
-			<h2>Forma de pago</h2>
 			<form onSubmit={handleSubmit}>
 				<fieldset>
-					<legend>Shipping Address</legend>
+					<legend className="step-title">Forma de pago</legend>
 					<Grid container spacing={3}>
 						<Grid item xs={12} sm={6}>
 							<TextField
@@ -178,13 +177,13 @@ export function PaymentForm() {
 }
 export function Review() {
 	const { checkout, handleBack, finishCheckout } = useCheckoutContext()
-	const { cartList, totalPrice, totalCount } = useCartContext()
+	const { cartList, totalPrice, } = useCartContext()
 	const { name, address, city, state, zip, cardNumber, cardName, cardExpiration } = checkout
 	console.log(cartList, checkout)
 
 	return (
 		<div className="review-order">
-			<h2>Confirmá tu órden</h2>
+			<h2 className="step-title">Confirmá tu órden</h2>
 			<div className="review-order-products">
 				<h3>Productos</h3>
 				<ul>
