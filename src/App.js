@@ -8,7 +8,7 @@ import NotFound from "./pages/NotFound/NotFound"
 import "./App.css"
 import CartContextProvider from "./context/CartContextProvider"
 import Checkout from "./pages/Checkout/Checkout"
-import CheckoutContextProvider, { CheckoutContext } from "./context/CheckoutContextProvider"
+import CheckoutContextProvider from "./context/CheckoutContextProvider"
 
 function App() {
 	return (
