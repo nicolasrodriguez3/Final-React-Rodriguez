@@ -26,6 +26,7 @@ export default function Navbar() {
 						<NavLink to="/categories/smartphone">Smartphone</NavLink>
 						<NavLink to="/categories/computacion">Computacion</NavLink>
 						<NavLink to="/categories/electrodomesticos">Electro</NavLink>
+						<NavLink to="/categories/televisores">Televisores</NavLink>
 					</nav>
 					<button
 						className="navbar-burger hidden-lg"

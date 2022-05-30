@@ -1,5 +1,5 @@
-import { Button, Grid, TextField } from "@mui/material"
 import React from "react"
+import { Button, Grid, TextField } from "@mui/material"
 import { useCartContext } from "../../context/CartContextProvider"
 import { useCheckoutContext } from "../../context/CheckoutContextProvider"
 
@@ -106,7 +106,6 @@ export function AddressForm() {
 }
 export function PaymentForm() {
 	const { checkout, handleChange, handleSubmit, handleBack } = useCheckoutContext()
-
 	const { cardNumber, cardName, cardExpiration, cardCvv } = checkout
 
 	return (
@@ -187,12 +186,12 @@ export function Review() {
 			<div className="review-order-products">
 				<h3>Productos</h3>
 				<ul>
-					{cartList.map((item) => (
-						<li key={item.id}>
+					{cartList.map(({id, quantity, title, price}) => (
+						<li key={id}>
 							<p>
-								{item.quantity}x {item.title}
+								{quantity}x {title}
 							</p>
-							<p>${item.price * item.quantity}</p>
+							<p>${price * quantity}</p>
 						</li>
 					))}
 				</ul>

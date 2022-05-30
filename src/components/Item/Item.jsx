@@ -14,7 +14,7 @@ export default function Item({ product }) {
 	}
 	// guardamos el descuento para verificar que sea mayor a 0
 	const discount = getDiscount()
-	console.log(imageURL)
+	
 	return (
 		<article className="item">
 			<Link to={`/details/${id}`} className="item-link">
