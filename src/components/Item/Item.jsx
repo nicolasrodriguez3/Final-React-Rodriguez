@@ -4,28 +4,35 @@ import { Link } from "react-router-dom"
 import Button from "../Button/Button"
 import ItemAddedToCart from "../ItemAddedToCart/ItemAddedToCart"
 
-const getDiscount = (current, previous) => {
-	// si existe el campo "Precio anterior" y este es mayor al precio actual se retorna el porcentaje de descuento
-	if (previous && previous > current) return (((previous - current) / previous) * 100).toFixed(0)
-}
-
 export default function Item({ product }) {
 	const { addToCart } = useCartContext()
 	const [addedToCart, setAddedToCart] = useState(false)
 	const { title, price, lastPrice, imageURL, id } = product
 
-	// guardamos el descuento para verificar que exista
-	const discount = getDiscount(price, lastPrice)
+	const getDiscount = () => {
+		if (lastPrice) return (((lastPrice - price) / lastPrice) * 100).toFixed(0)
+	}
+	// guardamos el descuento para verificar que sea mayor a 0
+	const discount = getDiscount()
 
 	return (
 		<article className="item">
 			<Link to={`/details/${id}`} className="item-link">
-				<img src={imageURL[0]} alt={title} />
+				<img
+					src={imageURL[0]}
+					alt={title}
+					onMouseEnter={(e) => {
+						imageURL[1] && (e.target.src = imageURL[1])
+					}}
+					onMouseLeave={(e) => {
+						e.target.src = imageURL[0]
+					}}
+				/>
 				<div className="item-info">
-					{discount && <div className="last-price">${lastPrice}</div>}
+					{discount > 0 && <div className="last-price">${lastPrice}</div>}
 					<div className="price-container">
 						<span className="price">${price}</span>
-						{discount && <span className="discount">{discount}% OFF</span>}
+						{discount > 0 && <span className="discount">{discount}% OFF</span>}
 					</div>
 					<h2 className="title">{title}</h2>
 				</div>

@@ -17,7 +17,7 @@ export default function Navbar() {
 	return (
 		<header className="header">
 			<div className="max-width header-content">
-				<Link to="/" className="logo">
+				<Link to="/" className="logo" onClick={() => window.scrollTo(0,0)}>
 					<img src={logo} alt="ForYou logo" />
 				</Link>
 				<div className="nav-icons">
