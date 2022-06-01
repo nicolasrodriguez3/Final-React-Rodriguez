@@ -1,10 +1,15 @@
 import React from "react"
-import { AddressForm, PaymentForm, Review, Success } from "../../components/CheckoutForm/CheckoutForm"
-import { useCheckoutContext } from "../../context/CheckoutContextProvider";
+import {
+	AddressForm,
+	PaymentForm,
+	Review,
+	Success,
+} from "../../components/CheckoutForm/CheckoutForm"
+import { useCheckoutContext } from "../../context/CheckoutContextProvider"
 import Loader from "../../components/Loader/Loader"
 import "./Checkout.css"
-import { Step, StepLabel, Stepper } from "@mui/material";
-import { useCartContext } from "../../context/CartContextProvider";
+import { Step, StepLabel, Stepper } from "@mui/material"
+import { useCartContext } from "../../context/CartContextProvider"
 
 function getStepContent(step) {
 	switch (step) {
@@ -29,21 +34,21 @@ export default function Checkout() {
 	if (ITEMS_IN_CART === 0) window.location.href = "/"
 
 	return (
-		<div className="checkout">
-			<h2 className="title">Checkout</h2>
-			<Stepper activeStep={activeStep}>
-        {steps.map((label) => {
-          
-          return (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
-            </Step>
-          );
-        })}
-      </Stepper>
-			{isloading && <Loader />}
-			{!orderID ? getStepContent(activeStep) : <Success />}
-			
+		<div className="checkout-container">
+			<div className="checkout">
+				<h2 className="form-title">Checkout</h2>
+				<Stepper alternativeLabel  activeStep={activeStep}>
+					{steps.map((label) => {
+						return (
+							<Step key={label}>
+								<StepLabel>{label}</StepLabel>
+							</Step>
+						)
+					})}
+				</Stepper>
+				{isloading && <Loader />}
+				{!orderID ? getStepContent(activeStep) : <Success />}
+			</div>
 		</div>
 	)
 }

@@ -40,7 +40,6 @@ export default function ItemList() {
 			setLoading(false)
 		}
 		getData(category)
-
 	}, [category, LIMIT])
 
 	// Resetear el estado "page" cuando se cambie la categoria
@@ -49,34 +48,38 @@ export default function ItemList() {
 	}, [category])
 
 	const loadMore = async () => {
-		setPage(prevPage => prevPage + 1)
+		setPage((prevPage) => prevPage + 1)
 	}
 
-	const screenWidth = window.innerWidth,
-		numberOfItems = Math.floor(screenWidth / 300)
-
+	const loadingUI = () => {
+		const screenWidth = window.innerWidth,
+			numberOfItems = Math.floor(screenWidth / 300)
+		return (
+			<section className="item-list">
+				{[...Array(numberOfItems)].map((_, i) => (
+					<ItemSkeleton key={i} />
+				))}
+			</section>
+		)
+	}
 	return loading ? (
-		<>
-			{[...Array(numberOfItems)].map((_, i) => (
-				<ItemSkeleton key={i} />
-			))}
-		</>
+		loadingUI()
 	) : (
 		<InfiniteScroll
 			dataLength={products.length} //This is important field to render the next data
 			next={loadMore}
 			hasMore={true}
-			loader={<ItemSkeleton />}
+			loader={loadingUI}
 			endMessage={
 				<p style={{ textAlign: "center" }}>
 					<b>Yay! You have seen it all</b>
 				</p>
 			}>
-			<div className="">
+			<section className="item-list">
 				{products.map((product) => (
 					<Item key={product.id} product={product} />
 				))}
-			</div>
+			</section>
 		</InfiniteScroll>
 	)
 }

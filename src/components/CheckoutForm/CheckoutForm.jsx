@@ -5,7 +5,7 @@ import { useCheckoutContext } from "../../context/CheckoutContextProvider"
 
 export function AddressForm() {
 	const { checkout, handleChange, handleSubmit } = useCheckoutContext()
-	const { name, email, address, phone, city, state, zip } = checkout
+	const { name, email, address, phone } = checkout
 	return (
 		<form onSubmit={handleSubmit}>
 			<fieldset>
@@ -47,7 +47,7 @@ export function AddressForm() {
 							onChange={handleChange}
 						/>
 					</Grid>
-					<Grid item xs={12} sm={6}>
+					<Grid item xs={12}>
 						<TextField
 							label="Dirección"
 							type={"text"}
@@ -59,48 +59,14 @@ export function AddressForm() {
 							onChange={handleChange}
 						/>
 					</Grid>
-					<Grid item xs={12} sm={6}>
-						<TextField
-							id="standard-basic"
-							label="Código postal"
-							type={"number"}
-							variant="standard"
-							fullWidth
-							required
-							name="zip"
-							value={zip}
-							onChange={handleChange}
-						/>
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<TextField
-							label="Ciudad"
-							type={"text"}
-							variant="standard"
-							fullWidth
-							required
-							name="city"
-							value={city}
-							onChange={handleChange}
-						/>
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<TextField
-							label="Provincia"
-							type={"text"}
-							variant="standard"
-							fullWidth
-							required
-							name="state"
-							value={state}
-							onChange={handleChange}
-						/>
-					</Grid>
 				</Grid>
 			</fieldset>
-			<Button variant="contained" color="secondary" type="submit" className="btn-next">
-				Continuar
-			</Button>
+			<div className="form-btns">
+				<span></span>
+				<Button variant="contained" color="secondary" type="submit">
+					Continuar
+				</Button>
+			</div>
 		</form>
 	)
 }
@@ -164,79 +130,77 @@ export function PaymentForm() {
 						</Grid>
 					</Grid>
 				</fieldset>
-				<Button variant="outlined" color="secondary" onClick={handleBack}>
-					Volver
-				</Button>
-				<Button variant="contained" color="secondary" type="submit">
-					Continuar
-				</Button>
+				<div className="form-btns">
+					<Button variant="outlined" color="secondary" onClick={handleBack}>
+						Volver
+					</Button>
+					<Button variant="contained" color="secondary" type="submit">
+						Continuar
+					</Button>
+				</div>
 			</form>
 		</>
 	)
 }
 export function Review() {
 	const { checkout, handleBack, finishCheckout } = useCheckoutContext()
-	const { cartList, totalPrice, } = useCartContext()
-	const { name, address, city, state, zip, cardNumber, cardName, cardExpiration } = checkout
+	const { cartList, totalPrice } = useCartContext()
+	const { name, address, cardNumber, cardName, cardExpiration } = checkout
 	console.log(cartList, checkout)
 
 	return (
-		<div className="review-order">
-			<h2 className="step-title">Confirmá tu órden</h2>
-			<div className="review-order-products">
-				<h3>Productos</h3>
-				<ul>
-					{cartList.map(({id, quantity, title, price}) => (
-						<li key={id}>
-							<p>
-								{quantity}x {title}
-							</p>
-							<p>${price * quantity}</p>
-						</li>
-					))}
-				</ul>
-				<div className="review-total">
-					<span>Total</span> <b>${totalPrice()}</b>
+		<>
+			<div className="review-order">
+				<h2 className="step-title">Confirmá tu órden</h2>
+				<div className="review-order-products">
+					<h3>Productos</h3>
+					<ul>
+						{cartList.map(({ id, quantity, title, price }) => (
+							<li key={id}>
+								<p>
+									{quantity}x {title}
+								</p>
+								<p>${price * quantity}</p>
+							</li>
+						))}
+					</ul>
+					<div className="review-total">
+						<span>Total</span> <b>${totalPrice()}</b>
+					</div>
+				</div>
+				<div className="review-order-shipping">
+					<h3>Datos para envío</h3>
+					<ul>
+						<li>{name}</li>
+						<li>{address}</li>
+					</ul>
+				</div>
+
+				<div className="review-order-payment">
+					<h3>Datos para pago</h3>
+					<ul>
+						<li>Número de tarjeta: {cardNumber}</li>
+						<li>Nombre del titular: {cardName}</li>
+						<li>Fecha de expiración: {cardExpiration}</li>
+					</ul>
 				</div>
 			</div>
-			<div className="review-order-shipping">
-				<h3>Datos para envío</h3>
-				<ul>
-					<li>{name}</li>
-					<li>
-						{address}, {city}
-					</li>
-					<li>
-						{state}. CP: {zip}
-					</li>
-				</ul>
-			</div>
-
-			<div className="review-order-payment">
-				<h3>Datos para pago</h3>
-				<ul>
-					<li>Número de tarjeta: {cardNumber}</li>
-					<li>Nombre del titular: {cardName}</li>
-					<li>Fecha de expiración: {cardExpiration}</li>
-				</ul>
-			</div>
-
-			<div>
+			<div className="form-btns form-btn-last">
 				<Button variant="outlined" color="secondary" onClick={handleBack}>
 					Volver
 				</Button>
 				<Button variant="contained" color="secondary" onClick={finishCheckout}>
-					Continuar
+					Confirmar compra
 				</Button>
 			</div>
-		</div>
+		</>
 	)
 }
 export function Success() {
 	const { orderID } = useCheckoutContext()
 	return (
 		<>
-			<h2>Gracias por tu compra</h2>
+			<h2 className="form-title">Gracias por tu compra</h2>
 			<p>
 				Su número de orden es: <b>{orderID}</b>
 			</p>

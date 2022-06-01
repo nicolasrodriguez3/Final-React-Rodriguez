@@ -5,7 +5,7 @@ import ItemCount from "../ItemCount/ItemCount"
 import "./ItemDetail.css"
 
 export default function ItemDetail({ detail }) {
-	const { title, description, price, pictureURL, stock } = detail
+	const { title, description, price, imageURL, stock } = detail
 	const [addedToCart, setAddedToCart] = useState(false)
 	const { addToCart } = useCartContext()
 
@@ -19,7 +19,7 @@ export default function ItemDetail({ detail }) {
 	return (
 		<section className="product-detail container max-width">
 			<picture className="product-detail-left">
-				<img src={pictureURL} alt={title} />
+				<img src={imageURL[0]} alt={title} />
 			</picture>
 			<aside className="product-detail_right">
 				<header>
