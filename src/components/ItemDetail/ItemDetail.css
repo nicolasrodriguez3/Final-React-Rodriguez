@@ -46,6 +46,6 @@
 	color: #fff;
 	text-decoration: none;
 }
-.item-added-success{
-	animation: fade-in .5s ease-in-out forwards;
+.product-detail .item-added-success{
+	opacity: 1;
 }

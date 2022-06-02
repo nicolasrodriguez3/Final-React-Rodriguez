@@ -2,6 +2,7 @@ import React from "react"
 import { Button, Grid, TextField } from "@mui/material"
 import { useCartContext } from "../../context/CartContextProvider"
 import { useCheckoutContext } from "../../context/CheckoutContextProvider"
+import { Link } from "react-router-dom"
 
 export function AddressForm() {
 	const { checkout, handleChange, handleSubmit } = useCheckoutContext()
@@ -199,11 +200,18 @@ export function Review() {
 export function Success() {
 	const { orderID } = useCheckoutContext()
 	return (
-		<>
+		<div className="thanks">
 			<h2 className="form-title">Gracias por tu compra</h2>
 			<p>
 				Su número de orden es: <b>{orderID}</b>
 			</p>
-		</>
+			<p>Pronto recibirá un correo con los detalles de su compra👌</p>
+
+			<Link to="/" className="item-added-link">
+				<Button variant="contained" color="secondary">
+					Ir a inicio
+				</Button>
+			</Link>
+		</div>
 	)
 }

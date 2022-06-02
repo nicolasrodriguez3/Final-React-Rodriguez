@@ -79,7 +79,9 @@ legend {
 	margin-bottom: 1rem;
 }
 
-
+.thanks p{
+	margin-bottom: 1rem;
+}
 
 @media (min-width: 600px) {
 	.review-order {

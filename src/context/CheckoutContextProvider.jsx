@@ -1,7 +1,7 @@
-import { addDoc, collection } from 'firebase/firestore'
-import React, { createContext, useContext, useState } from 'react'
-import db from '../firebase/firebaseConfig'
-import { useCartContext } from './CartContextProvider'
+import { addDoc, collection } from "firebase/firestore"
+import React, { createContext, useContext, useState } from "react"
+import db from "../firebase/firebaseConfig"
+import { useCartContext } from "./CartContextProvider"
 
 export const CheckoutContext = createContext({})
 export const useCheckoutContext = () => useContext(CheckoutContext)
@@ -13,17 +13,17 @@ const CheckoutContextProvider = ({ children }) => {
 	const [orderID, setOrderID] = useState(null)
 	const [activeStep, setActiveStep] = useState(0)
 	const [checkout, setCheckout] = useState({
-		name: '',
-		email: '',
-		address: '',
+		name: "",
+		email: "",
+		address: "",
 		phone: "",
-		city: '',
-		state: '',
-		zip: '',
-		cardNumber: '',
-		cardName: '',
-		cardExpiration: '',
-		cardCvv: '',
+		city: "",
+		state: "",
+		zip: "",
+		cardNumber: "",
+		cardName: "",
+		cardExpiration: "",
+		cardCvv: "",
 	})
 
 	const handleNext = () => {
@@ -69,16 +69,15 @@ const CheckoutContextProvider = ({ children }) => {
 		setIsLoading(false)
 	}
 
-  const generateOrder = async(data) => {
-    try {
-        const col = collection(db,"Orders")
-        const order = await addDoc(col,data) 
-        setOrderID(order.id)
-        
-    } catch (error) {
-        console.log(error)
-    }
-}
+	const generateOrder = async (data) => {
+		try {
+			const col = collection(db, "Orders")
+			const order = await addDoc(col, data)
+			setOrderID(order.id)
+		} catch (error) {
+			console.log(error)
+		}
+	}
 
 	return (
 		<CheckoutContext.Provider
@@ -91,9 +90,8 @@ const CheckoutContextProvider = ({ children }) => {
 				handleSubmit,
 				handleBack,
 				handleNext,
-				finishCheckout
-			}}
-		>
+				finishCheckout,
+			}}>
 			{children}
 		</CheckoutContext.Provider>
 	)

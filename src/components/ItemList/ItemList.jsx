@@ -76,9 +76,7 @@ export default function ItemList() {
 				</p>
 			}>
 			<section className="item-list">
-				{products.map((product) => (
-					<Item key={product.id} product={product} />
-				))}
+				{products.map((product) => <Item key={product.id} product={product} />)}
 			</section>
 		</InfiniteScroll>
 	)

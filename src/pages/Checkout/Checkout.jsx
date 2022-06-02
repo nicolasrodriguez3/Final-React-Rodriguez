@@ -9,7 +9,6 @@ import { useCheckoutContext } from "../../context/CheckoutContextProvider"
 import Loader from "../../components/Loader/Loader"
 import "./Checkout.css"
 import { Step, StepLabel, Stepper } from "@mui/material"
-import { useCartContext } from "../../context/CartContextProvider"
 
 function getStepContent(step) {
 	switch (step) {
@@ -26,28 +25,31 @@ function getStepContent(step) {
 
 export default function Checkout() {
 	const { activeStep, orderID, isloading } = useCheckoutContext()
-	const { totalCount } = useCartContext()
 	const steps = ["Dirección", "Pago", "Confirmación"]
-
-	// verificar que haya productos en el carrito y si no hay, returnar a inicio
-	const ITEMS_IN_CART = totalCount()
-	if (ITEMS_IN_CART === 0) window.location.href = "/"
 
 	return (
 		<div className="checkout-container">
 			<div className="checkout">
-				<h2 className="form-title">Checkout</h2>
-				<Stepper alternativeLabel  activeStep={activeStep}>
-					{steps.map((label) => {
-						return (
-							<Step key={label}>
-								<StepLabel>{label}</StepLabel>
-							</Step>
-						)
-					})}
-				</Stepper>
+				
 				{isloading && <Loader />}
-				{!orderID ? getStepContent(activeStep) : <Success />}
+				{/* Si no hay orderID mostrar el form de checkout. Caso contrario mostrar la confirmacion */}
+				{!orderID && !isloading ? (
+					<>
+						<h2 className="form-title">Checkout</h2>
+						<Stepper alternativeLabel activeStep={activeStep}>
+							{steps.map((label) => {
+								return (
+									<Step key={label}>
+										<StepLabel>{label}</StepLabel>
+									</Step>
+								)
+							})}
+						</Stepper>
+						{getStepContent(activeStep)}
+					</>
+				) : (
+					<Success />
+				)}
 			</div>
 		</div>
 	)
