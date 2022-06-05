@@ -14,11 +14,18 @@ export default function ItemList() {
 	const { category } = useParams()
 	const [products, setProducts] = useState([])
 	const [loading, setLoading] = useState(true)
+	const [hasMore, setHasMore] = useState(true)
 
 	const [page, setPage] = useState(1)
 	const LIMIT = 12 * page
 
-	// Resetear el estado "page" cuando se cambie la categoria
+	// Verificar si hay mas productos para cargar
+	console.log(products.length , LIMIT)
+	useEffect(() => {
+	(products.length < LIMIT) && setHasMore(false)
+	}, [products, LIMIT])
+
+	// Resetear el estado "page" cuando se cambie la categoria y hacer scroll hacia arriba
 	useEffect(() => {
 		setPage(1)
 		setLoading(true)
@@ -42,11 +49,6 @@ export default function ItemList() {
 		getData(category)
 	}, [category, LIMIT])
 
-	// Resetear el estado "page" cuando se cambie la categoria
-	useEffect(() => {
-		setPage(1)
-	}, [category])
-
 	const loadMore = async () => {
 		setPage((prevPage) => prevPage + 1)
 	}
@@ -68,7 +70,7 @@ export default function ItemList() {
 		<InfiniteScroll
 			dataLength={products.length} //This is important field to render the next data
 			next={loadMore}
-			hasMore={true}
+			hasMore={hasMore}
 			loader={loadingUI}
 			endMessage={
 				<p style={{ textAlign: "center" }}>

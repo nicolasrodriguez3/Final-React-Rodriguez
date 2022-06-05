@@ -65,6 +65,7 @@
 	align-items: center;
 	justify-content: center;
 	text-align: center;
+	flex-direction: column;
 }
 .categories.is-active{
 	display: flex;
@@ -100,12 +101,7 @@
 	.categories{
 		position: static;
 		display: flex;
-		background-color: #d6c5ff;
-		padding: .5rem 1rem;
-		gap: 1rem;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
+		flex-direction: row;
 	}
 	.nav-icons{
 		flex-direction: row-reverse;
