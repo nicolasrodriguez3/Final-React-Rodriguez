@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { collection, getDocs, limit, query, where } from "firebase/firestore"
 import db from "../../firebase/firebaseConfig"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import InfiniteScroll from "react-infinite-scroll-component"
 import Item from "../Item/Item"
 import ItemSkeleton from "../ItemSkeleton/ItemSkeleton"
@@ -53,9 +53,9 @@ export default function ItemList() {
 		setPage((prevPage) => prevPage + 1)
 	}
 
-	const loadingUI = () => {
+	const LoadingUI = () => {
 		const screenWidth = window.innerWidth,
-			numberOfItems = Math.floor(screenWidth / 300)
+			numberOfItems = Math.floor(screenWidth / 300) > 4 ? 4 : Math.floor(screenWidth / 300)
 		return (
 			<section className="item-list">
 				{[...Array(numberOfItems)].map((_, i) => (
@@ -65,17 +65,18 @@ export default function ItemList() {
 		)
 	}
 	return loading ? (
-		loadingUI()
+		LoadingUI()
 	) : (
 		<InfiniteScroll
 			dataLength={products.length} //This is important field to render the next data
 			next={loadMore}
 			hasMore={hasMore}
-			loader={loadingUI}
+			loader={<LoadingUI />}
 			endMessage={
-				<p style={{ textAlign: "center" }}>
-					<b>Yay! You have seen it all</b>
-				</p>
+				<div style={{ textAlign: "center" }}>
+					<p>No hay mas productos!</p> 
+					<p><button onClick={()=> window.scrollTo(0,0)} className="btn">Ir arriba</button></p>
+				</div>
 			}>
 			<section className="item-list">
 				{products.map((product) => <Item key={product.id} product={product} />)}

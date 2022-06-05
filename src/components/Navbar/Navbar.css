@@ -66,6 +66,7 @@
 	justify-content: center;
 	text-align: center;
 	flex-direction: column;
+	border-top: 1px solid #7c2cab77;
 }
 .categories.is-active{
 	display: flex;
@@ -102,6 +103,7 @@
 		position: static;
 		display: flex;
 		flex-direction: row;
+		border-top: none;
 	}
 	.nav-icons{
 		flex-direction: row-reverse;
