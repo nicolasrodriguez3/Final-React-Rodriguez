@@ -6,9 +6,9 @@ export default function ItemListContainer(props) {
 	return (
 		<div className="item-list-container">
 			<h2>{props.greeting}❤️</h2>
-			<section style={{"width": "100%",}}>
+			<main className="main-content max-width">
 				<ItemList />
-			</section>
+			</main>
 			
 		</div>
 	)

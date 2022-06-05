@@ -51,9 +51,9 @@ export default function ItemList() {
 		setPage((prevPage) => prevPage + 1)
 	}
 
-	const loadingUI = () => {
+	const LoadingUI = () => {
 		const screenWidth = window.innerWidth,
-			numberOfItems = Math.floor(screenWidth / 300)
+			numberOfItems = Math.floor(screenWidth / 300) > 4 ? 4 : Math.floor(screenWidth / 300)
 		return (
 			<section className="item-list">
 				{[...Array(numberOfItems)].map((_, i) => (
@@ -63,13 +63,13 @@ export default function ItemList() {
 		)
 	}
 	return loading ? (
-		loadingUI()
+		LoadingUI()
 	) : (
 		<InfiniteScroll
 			dataLength={products.length} //This is important field to render the next data
 			next={loadMore}
 			hasMore={true}
-			loader={loadingUI}
+			loader={<LoadingUI />}
 			endMessage={
 				<p style={{ textAlign: "center" }}>
 					<b>Yay! You have seen it all</b>
