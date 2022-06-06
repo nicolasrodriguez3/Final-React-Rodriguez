@@ -97,3 +97,10 @@
 .item:hover .last-price {
 	opacity: 0.7;
 }
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1rem;
+}	
