@@ -6,7 +6,7 @@ Aquí podrás encontrar una tienda online donde podrás comprar productos para t
 ## Sobre el proyecto
 Esta tienda fue realizada durante el transcurso del curso, con el objetivo de poner en practica los conocimientos adquiridos en un proyecto que implica varios desafios.
 Esta realizado bajo el framework de React.js con un enfoque basado en componentes funcionales. Esto permite que sea un proyecto escalable y que se pueda extender en futuras versiones.
-Asi mismo, se dasarrollo con la metodologia "mobile first" para que se adapte a todos los dispositivos.
+Asi mismo, se desarrollo con la metodologia "mobile first" para que se adapte a todos los dispositivos.
 
 ## Screenshots
 ![Demo](./public/demo.gif)
@@ -14,8 +14,7 @@ Asi mismo, se dasarrollo con la metodologia "mobile first" para que se adapte a 
 ## Dependencias
 * React.js: Una de las librerias mas populares actualmente. Encontra mas info en [https://reactjs.org/](https://reactjs.org/)
 * React Router DOM: Para manejar con facilidad las rutas de la aplicación. [https://reactrouter.com/](https://reactrouter.com/)
-* Uiball: Para el loader de la aplicación. [https://uiball.com/](https://uiball.com/)
-* Material-UI: Para el diseño de la aplicación. [https://material-ui.com/](https://material-ui.com/)
+* Material-UI: Para multiples interfaces de la aplicación. [https://material-ui.com/](https://material-ui.com/)
 
 ## Instalación
 Para instalar la aplicación, se debe realizar los siguientes pasos:
