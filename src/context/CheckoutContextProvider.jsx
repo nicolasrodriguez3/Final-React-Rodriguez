@@ -46,7 +46,7 @@ const CheckoutContextProvider = ({ children }) => {
 		handleNext()
 	}
 
-	const finishCheckout = () => {
+	const finishCheckout = async () => {
 		// { buyer: { name, phone, email }, items: [{id, title, price}], date, total  }
 		setIsLoading(true)
 
@@ -64,7 +64,7 @@ const CheckoutContextProvider = ({ children }) => {
 			date: new Date(),
 			total: totalPrice(),
 		}
-		generateOrder(datos)
+		await generateOrder(datos)
 		emptyCart()
 		setIsLoading(false)
 	}
@@ -83,8 +83,10 @@ const CheckoutContextProvider = ({ children }) => {
 		<CheckoutContext.Provider
 			value={{
 				activeStep,
+				setActiveStep,
 				checkout,
 				orderID,
+				setOrderID,
 				isloading,
 				handleChange,
 				handleSubmit,

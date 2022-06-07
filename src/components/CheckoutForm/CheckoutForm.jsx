@@ -1,5 +1,5 @@
-import React from "react"
-import { Button, Grid, TextField } from "@mui/material"
+import React, { useEffect } from "react"
+import { Button, Grid, Skeleton, TextField } from "@mui/material"
 import { useCartContext } from "../../context/CartContextProvider"
 import { useCheckoutContext } from "../../context/CheckoutContextProvider"
 import { Link } from "react-router-dom"
@@ -147,7 +147,6 @@ export function Review() {
 	const { checkout, handleBack, finishCheckout } = useCheckoutContext()
 	const { cartList, totalPrice } = useCartContext()
 	const { name, address, cardNumber, cardName, cardExpiration } = checkout
-	console.log(cartList, checkout)
 
 	return (
 		<>
@@ -198,7 +197,24 @@ export function Review() {
 	)
 }
 export function Success() {
-	const { orderID } = useCheckoutContext()
+	const { orderID, setOrderID, setActiveStep, isloading } = useCheckoutContext()
+	useEffect(() => {
+		return () => {
+			if (orderID){
+				setOrderID(null)
+				setActiveStep(0)
+			} 
+		}
+	})
+	if(isloading){
+		return (
+			<>
+				<Skeleton variant="text" height={"2.5em"} width={250} />
+				<Skeleton variant="text"  />
+				<Skeleton variant="text" width={75} />
+			</>
+		)
+	}
 	return (
 		<div className="thanks">
 			<h2 className="form-title">Gracias por tu compra</h2>

@@ -6,7 +6,6 @@ import {
 	Success,
 } from "../../components/CheckoutForm/CheckoutForm"
 import { useCheckoutContext } from "../../context/CheckoutContextProvider"
-import Loader from "../../components/Loader/Loader"
 import "./Checkout.css"
 import { Step, StepLabel, Stepper } from "@mui/material"
 
@@ -30,8 +29,6 @@ export default function Checkout() {
 	return (
 		<div className="checkout-container">
 			<div className="checkout">
-				
-				{isloading && <Loader />}
 				{/* Si no hay orderID mostrar el form de checkout. Caso contrario mostrar la confirmacion */}
 				{!orderID && !isloading ? (
 					<>
