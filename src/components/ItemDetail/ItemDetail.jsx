@@ -24,9 +24,9 @@ export default function ItemDetail({ detail }) {
 			<aside className="product-detail_right">
 				<header>
 					<h1>{title}</h1>
-				<p className="price">${price}</p>
+					<p className="price">${price}</p>
 				</header>
-				
+
 				{/* Mostrar los botones hasta que el producto se agregue al carrito */}
 				{!addedToCart ? (
 					<ItemCount stock={stock} name={title} onAdd={handleAddToCart} />
@@ -34,7 +34,11 @@ export default function ItemDetail({ detail }) {
 					<ItemAddedToCart />
 				)}
 
-				<p className="description">{description}</p>
+				<div className="description">
+					{description.split("\n").map((item, index) => (
+						<p key={index}>{item}</p>
+					))}
+				</div>
 			</aside>
 		</section>
 	)

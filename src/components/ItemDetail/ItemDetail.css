@@ -3,13 +3,14 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	background-color: white;
+	padding: 2rem 1rem;
 }
 .product-detail-left {
 	width: 50%;
 	padding: 1rem;
 	flex: 1 1 300px;
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 }
 .product-detail-left img {
 	width: 100%;
@@ -36,6 +37,11 @@
 }
 .product-detail_right .description {
 	font-size: 1rem;
+	line-height: 1.5rem;
+	margin-bottom: 1rem;
+}
+.description p {
+	margin-bottom: .5rem;
 }
 
 .item-added-text{

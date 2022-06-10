@@ -60,6 +60,7 @@ const CheckoutContextProvider = ({ children }) => {
 				id: item.id,
 				title: item.title,
 				price: item.price,
+				quantity: item.quantity,
 			})),
 			date: new Date(),
 			total: totalPrice(),

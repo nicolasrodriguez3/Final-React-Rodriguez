@@ -12,7 +12,6 @@ export default function ItemDetailContainer() {
 	const itemID = (useParams().id)
 
 	useEffect(() => {
-		console.log(itemID)
 		// Funcion para obtener los datos de firestore
 		const getData = async () => {
 			const itemRef = doc(db, "items", itemID);

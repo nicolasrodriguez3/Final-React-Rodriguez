@@ -9,7 +9,6 @@ export default function ItemCount({ stock, name, onAdd }) {
 	const handleAddToCart = () => {
 		if (value >= 1 && value <= stock) {
 			onAdd(value)
-			console.log(`Se agrego ${value} ${name} al carrito`)
 			setValue(1)
 		}
 	}

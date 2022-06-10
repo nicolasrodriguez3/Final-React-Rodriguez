@@ -34,12 +34,3 @@ function App() {
 }
 
 export default App
-
-/*
-	TODO: 
-	* crear readme 
-	* crear una pagina de error
-	* crear footer
-	* agregar un aviso cuando no hay mas stock para agregar al carrito (o mostrar el stock disponible en el componente itemDetail)
-	* agregar componente Skeleton de MUI
-*/
